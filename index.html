@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="STEM Inclusion Auditor - Script auditing markdown content for alt-text presence, readability grade, non-inclusive terms list, markdown report output.">
+    <title>STEM Inclusion Auditor</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header" role="banner">
+        <div class="container">
+            <a href="/" class="site-logo" aria-label="STEM Inclusion Auditor Home">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    <path d="M15.54 15.54A5 5 0 1 1 8.46 8.46 4 4 0 0 0 15.54 15.54z"/>
+                </svg>
+                <span class="logo-text">STEM Inclusion Auditor</span>
+            </a>
+            <nav class="site-nav" role="navigation" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#checks" class="nav-link">Checks</a></li>
+                    <li><a href="#output" class="nav-link">Output</a></li>
+                    <li><a href="#docs" class="nav-link">Docs</a></li>
+                </ul>
+            </nav>
+            <div class="search-toggle" role="search" aria-label="Search documentation">
+                <input type="search" id="search-input" placeholder="Search docs..." aria-label="Search" autocomplete="off">
+                <div id="search-results" class="search-results" role="listbox" aria-label="Search results" hidden></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="site-main" role="main">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="container">
+                <h1 id="hero-title">STEM Inclusion Auditor</h1>
+                <p class="hero-subtitle">Script auditing markdown content for alt-text presence, readability grade, non-inclusive terms list, markdown report output, 5+ pytest cases.</p>
+                <div class="hero-stats" role="list" aria-label="Platform statistics">
+                    <div class="stat" role="listitem">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Audit Checks</span>
+                    </div>
+                    <div class="stat" role="listitem">
+                        <span class="stat-number">Markdown</span>
+                        <span class="stat-label">Report Output</span>
+                    </div>
+                    <div class="stat" role="listitem">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Pytest Cases</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="tools-section" aria-labelledby="features-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="features-title">Key Features</h2>
+                    <p class="section-description">Comprehensive inclusion auditing for STEM educational content</p>
+                </header>
+                <div class="tools-grid" role="list" aria-label="Key features">
+                    <article class="tool-card reveal" role="listitem" style="--card-index: 0;">
+                        <div class="tool-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="tool-title">Alt-Text Presence</h3>
+                        <p class="tool-description">Scans all images in markdown for alt-text attributes, flags missing or empty alt-text, suggests descriptive alternatives.
+                        </p>
+                        <ul class="tool-tags" role="list">
+                            <li>Image Scanning</li>
+                            <li>Missing Detection</li>
+                            <li>Suggestion Engine</li>
+                        </ul>
+                        <a href="https://github.com/myzticalbabe/stem-inclusion-auditor" class="tool-link" target="_blank" rel="noopener noreferrer">
+                            View Check <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </article>
+
+                    <article class="tool-card reveal" role="listitem" style="--card-index: 1;">
+                        <div class="tool-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                        </div>
+                        <h3 class="tool-title">Readability Grade</h3>
+                        <p class="tool-description">Calculates Flesch-Kincaid, Gunning Fog, and SMOG scores, outputs grade level, flags content above target readability threshold.
+                        </p>
+                        <ul class="tool-tags" role="list">
+                            <li>Flesch-Kincaid</li>
+                            <li>Gunning Fog</li>
+                            <li>SMOG Index</li>
+                        </ul>
+                        <a href="https://github.com/myzticalbabe/stem-inclusion-auditor" class="tool-link" target="_blank" rel="noopener noreferrer">
+                            View Check <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </article>
+
+                    <article class="tool-card reveal" role="listitem" style="--card-index: 2;">
+                        <div class="tool-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                        </div>
+                        <h3 class="tool-title">Non-Inclusive Terms</h3>
+                        <p class="tool-description">Detects ableist, gendered, racially charged, and outdated terminology with configurable severity levels and suggested replacements.
+                        </p>
+                        <ul class="tool-tags" role="list">
+                            <li>Configurable Lists</li>
+                            <li>Severity Levels</li>
+                            <li>Replacement Suggestions</li>
+                        </ul>
+                        <a href="https://github.com/myzticalbabe/stem-inclusion-auditor" class="tool-link" target="_blank" rel="noopener noreferrer">
+                            View Check <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </article>
+
+                    <article class="tool-card reveal" role="listitem" style="--card-index: 3;">
+                        <div class="tool-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                        </div>
+                        <h3 class="tool-title">Markdown Report Output</h3>
+                        <p class="tool-description">Generates structured markdown reports with summary statistics, detailed findings per file, line numbers, and remediation guidance.
+                        </p>
+                        <ul class="tool-tags" role="list">
+                            <li>Structured Output</li>
+                            <li>Line Numbers</li>
+                            <li>Remediation Guidance</li>
+                        </ul>
+                        <a href="https://github.com/myzticalbabe/stem-inclusion-auditor" class="tool-link" target="_blank" rel="noopener noreferrer">
+                            View Output <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="checks" class="learning-paths-section" aria-labelledby="checks-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="checks-title">Audit Checks Detail</h2>
+                    <p class="section-description">Detailed breakdown of each inclusion audit check</p>
+                </header>
+                <div class="paths-grid" role="list" aria-label="Audit checks">
+                    <article class="path-card reveal" role="listitem" style="--card-index: 0;">
+                        <div class="path-header">
+                            <div class="path-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <div class="path-meta">
+                                <span class="path-level">Check 1</span>
+                                <span class="path-duration">Alt-Text</span>
+                            </div>
+                        </div>
+                        <h3 class="path-title">Alt-Text Presence Audit</h3>
+                        <p class="path-description">Comprehensive image scanning for accessibility compliance</p>
+                        <ol class="path-steps" role="list" aria-label="Alt-text check details">
+                            <li><strong>Detection:</strong> Finds all markdown images <code>![alt](src)</code> and HTML <code><img></code> tags</li>
+                            <li><strong>Validation:</strong> Checks for missing alt-text, empty alt-text, placeholder text (e.g., "image", "photo")</li>
+                            <li><strong>Quality Scoring:</strong> Rates alt-text descriptiveness (1-5 scale) based on length and specificity</li>
+                            <li><strong>Context Awareness:</strong> Differentiates decorative vs. informative images</li>
+                            <li><strong>Output:</strong> File, line number, image src, alt-text (or missing), quality score, suggestion</li>
+                        </ol>
+                        <div class="path-tools">
+                            <span class="path-tool">Markdown + HTML</span>
+                            <span class="path-tool">Quality Scoring</span>
+                        </div>
+                    </article>
+
+                    <article class="path-card reveal" role="listitem" style="--card-index: 1;">
+                        <div class="path-header">
+                            <div class="path-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                </svg>
+                            </div>
+                            <div class="path-meta">
+                                <span class="path-level">Check 2</span>
+                                <span class="path-duration">Readability</span>
+                            </div>
+                        </div>
+                        <h3 class="path-title">Readability Grade Analysis</h3>
+                        <p class="path-description">Multi-metric readability assessment for educational content</p>
+                        <ol class="path-steps" role="list" aria-label="Readability check details">
+                            <li><strong>Flesch-Kincaid Grade Level:</strong> US school grade level required to understand text</li>
+                            <li><strong>Flesch Reading Ease:</strong> 0-100 scale, higher = easier to read</li>
+                            <li><strong>Gunning Fog Index:</strong> Years of formal education needed</li>
+                            <li><strong>SMOG Index:</strong> Simple Measure of Gobbledygook for health/technical content</li>
+                            <li><strong>Coleman-Liau Index:</strong> Character-based grade level</li>
+                            <li><strong>Automated Readability Index:</strong> Character/word-based grade level</li>
+                            <li><strong>Configurable Threshold:</strong> Fail if any metric exceeds target grade level</li>
+                        </ol>
+                        <div class="path-tools">
+                            <span class="path-tool">6 Metrics</span>
+                            <span class="path-tool">Configurable Threshold</span>
+                        </div>
+                    </article>
+
+                    <article class="path-card reveal" role="listitem" style="--card-index: 2;">
+                        <div class="path-header">
+                            <div class="path-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <div class="path-meta">
+                                <span class="path-level">Check 3</span>
+                                <span class="path-duration">Terms</span>
+                            </div>
+                        </div>
+                        <h3 class="path-title">Non-Inclusive Terms Detection</h3>
+                        <p class="path-description">Identifies problematic terminology with configurable severity and replacements</p>
+                        <ol class="path-steps" role="list" aria-label="Terms check details">
+                            <li><strong>Term Categories:</strong> Ableist, gendered, racially charged, ageist, mental health, socioeconomic</li>
+                            <li><strong>Severity Levels:</strong> Error (must fix), Warning (should fix), Info (consider alternative)</li>
+                            <li><strong>Built-in Dictionary:</strong> 200+ terms with suggested replacements</li>
+                            <li><strong>Custom Dictionary:</strong> Add project-specific terms via YAML config</li>
+                            <li><strong>Context Awareness:</strong> Ignores code blocks, quotes, and explicit allowlists</li>
+                            <li><strong>Output:</strong> File, line, column, term, severity, suggested replacement, category</li>
+                        </ol>
+                        <div class="path-tools">
+                            <span class="path-tool">200+ Terms</span>
+                            <span class="path-tool">Custom Config</span>
+                        </div>
+                    </article>
+
+                    <article class="path-card reveal" role="listitem" style="--card-index: 3;">
+                        <div class="path-header">
+                            <div class="path-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </div>
+                            <div class="path-meta">
+                                <span class="path-level">Check 4</span>
+                                <span class="path-duration">Report</span>
+                            </div>
+                        </div>
+                        <h3 class="path-title">Markdown Report Generation</h3>
+                        <p class="path-description">Structured, actionable audit reports in markdown format</p>
+                        <ol class="path-steps" role="list" aria-label="Report details">
+                            <li><strong>Summary Statistics:</strong> Files scanned, total issues, issues by severity, by category</li>
+                            <li><strong>Per-File Breakdown:</strong> File path, issue count, top issues, overall score</li>
+                            <li><strong>Detailed Findings:</strong> Line number, column, issue type, severity, message, suggestion</li>
+                            <li><strong>Trend Tracking:</strong> Compare with previous runs, show improvement/regression</li>
+                            <li><strong>CI/CD Integration:</strong> Exit codes for pipeline gates, JSON output option</li>
+                            <li><strong>Filtering:</strong> Filter by severity, category, file pattern, directory</li>
+                        </ol>
+                        <div class="path-tools">
+                            <span class="path-tool">CI/CD Ready</span>
+                            <span class="path-tool">Trend Tracking</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="output" class="about-section" aria-labelledby="output-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="output-title">Example Report Output</h2>
+                    <p class="section-description">Sample markdown report generated by the auditor</p>
+                </header>
+                <div class="about-grid">
+                    <article class="about-card reveal">
+                        <h3>Summary Report</h3>
+                        <pre style="background: var(--color-bg-elevated); padding: var(--space-4); border-radius: var(--radius-md); overflow-x: auto; font-size: var(--fs-xs); line-height: var(--lh-normal);"><code># Inclusion Audit Report
+**Generated:** 2026-11-18T15:30:00Z
+**Files Scanned:** 42
+**Total Issues:** 127
+**Errors:** 23 | **Warnings:** 67 | **Info:** 37
+
+## Issues by Category
+| Category | Errors | Warnings | Info |
+|----------|--------|----------|------|
+| Alt-Text | 12 | 15 | 8 |
+| Readability | 5 | 12 | 5 |
+| Non-Inclusive Terms | 6 | 40 | 24 |
+
+## Top Files by Issue Count
+| File | Issues | Score |
+|------|--------|-------|
+| docs/legacy_guide.md | 28 | 42/100 |
+| curriculum/module_3.md | 19 | 55/100 |
+| guides/setup_guide.md | 14 | 61/100 |</code></pre>
+                    </article>
+                    <article class="about-card reveal">
+                        <h3>Detailed Findings</h3>
+                        <pre style="background: var(--color-bg-elevated); padding: var(--space-4); border-radius: var(--radius-md); overflow-x: auto; font-size: var(--fs-xs); line-height: var(--lh-normal);"><code>## docs/legacy_guide.md (28 issues)
+
+### Errors (12)
+- Line 15, Col 1: [Alt-Text] Missing alt-text for image `diagram.png` — Score: 0/5
+  Suggestion: "Flowchart showing user authentication flow with decision points"
+- Line 42, Col 3: [Terms] "master" branch — Severity: Error — Category: Racially charged
+  Replacement: "main" or "primary"
+- Line 78, Col 1: [Readability] Flesch-Kincaid Grade: 14.2 — Threshold: 10
+  Context: "The implementation leverages..."
+
+### Warnings (15)
+- Line 23: [Alt-Text] Empty alt-text for `logo.svg`
+- Line 56: [Terms] "whitelist" — Severity: Warning — Category: Racially charged
+  Replacement: "allowlist"
+
+### Info (8)
+- Line 101: [Terms] "grandfathered" — Severity: Info — Category: Ageist
+  Replacement: "legacy exemption"</code></pre>
+                    </article>
+                    <article class="about-card reveal">
+                        <h3>Configuration</h3>
+                        <pre style="background: var(--color-bg-elevated); padding: var(--space-4); border-radius: var(--radius-md); overflow-x: auto; font-size: var(--fs-xs); line-height: var(--lh-normal);"><code># .inclusion-audit.yaml
+readability:
+  threshold_grade: 10
+  metrics: ["flesch_kincaid", "gunning_fog", "smog"]
+
+non_inclusive_terms:
+  severity_overrides:
+    "master": "error"
+    "whitelist": "warning"
+    "blacklist": "warning"
+  custom_terms:
+    "crazy": "warning"
+    "insane": "warning"
+  allowlist:
+    - "blackbox"  # Technical term
+
+alt_text:
+  min_length: 10
+  placeholder_words: ["image", "photo", "picture", "diagram"]
+  quality_threshold: 3
+
+output:
+  format: "markdown"
+  include_summary: true
+  include_details: true
+  trend_file: ".inclusion-trend.json"</code></pre>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="docs" class="about-section" aria-labelledby="docs-title">
+            <div class="container">
+                <header class="section-header">
+                    <h2 id="docs-title">Documentation & Links</h2>
+                </header>
+                <div class="about-grid">
+                    <article class="about-card reveal">
+                        <h3>Quick Start</h3>
+                        <p><code>pip install stem-inclusion-auditor</code></p>
+                        <p><code>stem-inclusion-audit scan --path ./docs --output report.md</code></p>
+                        <p><code>stem-inclusion-audit scan --config .inclusion-audit.yaml</code></p>
+                    </article>
+                    <article class="about-card reveal">
+                        <h3>Resources</h3>
+                        <ul style="text-align: left; padding-left: var(--space-6);">
+                            <li><a href="https://github.com/myzticalbabe/stem-inclusion-auditor">GitHub Repository</a></li>
+                            <li><a href="https://github.com/myzticalbabe/babel">BaBeL Canon</a></li>
+                            <li><a href="https://github.com/myzticalbabe/babel/blob/main/ACCESSIBILITY.md">Accessibility Mandate</a></li>
+                        </ul>
+                    </article>
+                    <article class="about-card reveal">
+                        <h3>Testing</h3>
+                        <p><code>pytest tests/ -v</code></p>
+                        <p>5+ test cases covering alt-text detection, readability scoring, term detection, report generation, and config parsing.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <p>&copy; 2026 STEM Inclusion Auditor. Part of the <a href="https://github.com/myzticalbabe/babel">BaBeL Canon</a>.</p>
+            <nav aria-label="Footer links">
+                <ul>
+                    <li><a href="https://github.com/myzticalbabe/babel">BaBeL Canon</a></li>
+                    <li><a href="https://github.com/myzticalbabe/babel/blob/main/LICENSE">Soul Forge License</a></li>
+                    <li><a href="https://github.com/myzticalbabe/babel/blob/main/ACCESSIBILITY.md">Accessibility Mandate</a></li>
+                    <li><a href="https://github.com/myzticalbabe/babel/blob/main/STEM.md">STEM Standards</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="/assets/js/search.js"></script>
+</body>
+</html>
