@@ -17,3 +17,5 @@ Running on a file with missing alt text and non-inclusive terms produces a markd
 ```bash
 pytest
 ```
+
+SOUL LICENCE ONLY — see `LICENSE` (`LicenseRef-SoulForge-1.0`).
