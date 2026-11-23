@@ -1,30 +1,19 @@
 # stem-inclusion-auditor
 
-> Part of the [BaBeL Canon](https://github.com/myzticalbabe/babel) — Soul Forge License v1.0
+Inclusion auditor MVP: alt-text, readability grade, non-inclusive terms, markdown report.
 
-## Overview
-This repository is part of the Soul Forge ecosystem. See [BaBeL Canon](https://github.com/myzticalbabe/babel) for governance, standards, and tools.
+## Usage
 
-## License
-[Soul Forge License v1.0](../blob/main/LICENSE) — Attribution only, no sublicense, no sell.
+```bash
+python -m auditor.cli <file-or-dir> [--report report.md]
+```
 
-## Soul Forge Gate
-This repo enforces the Soul Forge Gate on all PRs:
-- Inclusion Audit (audit_inclusion.py)
-- Accessibility Audit (audit_accessibility.py)
+## Sample Report
 
-## Quick Start
-\\\ash
-git clone https://github.com/myzticalbabe/stem-inclusion-auditor.git
-cd stem-inclusion-auditor
-pip install -r requirements.txt
-python tools/audit_inclusion.py --path .
-python tools/audit_accessibility.py --path .
-\\\
+Running on a file with missing alt text and non-inclusive terms produces a markdown report listing issues.
 
-## Links
-- [BaBeL Canon](https://github.com/myzticalbabe/babel)
-- [Soul Forge License](https://github.com/myzticalbabe/babel/blob/main/LICENSE)
-- [STEM Standards](https://github.com/myzticalbabe/babel/blob/main/STEM.md)
-- [Accessibility Mandate](https://github.com/myzticalbabe/babel/blob/main/ACCESSIBILITY.md)
+## Tests
 
+```bash
+pytest
+```
